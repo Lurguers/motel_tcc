@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -28,8 +29,12 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("Você clicou entrar");      
         
     }
+    @FXML    private void exitbuttonclick(MouseEvent event) {
+
+        System.exit(0);
         
-    
+    }
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
