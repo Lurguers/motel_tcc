@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,16 +23,11 @@
       </ImageView>
       <AnchorPane layoutX="259.0" layoutY="107.0" onKeyPressed="#handleButtonAction" prefHeight="337.0" prefWidth="283.0" style="-fx-background-color: #476a9b;">
          <children>
-            <Label fx:id="label" layoutX="56.0" prefHeight="74.0" prefWidth="173.0" text="ALOPAM">
+            <Label fx:id="label" alignment="CENTER" layoutX="56.0" prefHeight="74.0" prefWidth="173.0" text="MOTEL">
                <font>
-                  <Font name="Jaapokki-Regular" size="42.0" />
+                  <Font name="Berlin Sans FB Demi Bold" size="42.0" />
                </font>
             </Label>
-            <TextField fx:id="user" layoutX="77.0" layoutY="108.0" promptText="usuário">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets></TextField>
-            <PasswordField fx:id="pass" layoutX="77.0" layoutY="164.0" promptText="senha" />
             <Button fx:id="enter" layoutX="62.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="57.0" prefWidth="160.0" style="-fx-background-color: #1a273a; -fx-text-fill: #FFFFFF;" text="Entrar" />
             <ImageView fitHeight="25.0" fitWidth="50.0" layoutX="50.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -46,6 +40,8 @@
                </image>
             </ImageView>
             <Label fx:id="labelstatus" layoutX="77.0" layoutY="204.0" text="" textFill="RED" />
+            <JFXTextField fx:id="user" focusColor="#8cabff" layoutX="75.0" layoutY="108.0" prefHeight="25.0" prefWidth="149.0" promptText="usuário" />
+            <JFXPasswordField fx:id="pass" focusColor="#8cabff" layoutX="74.0" layoutY="164.0" prefHeight="25.0" prefWidth="149.0" promptText="senha" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="45.0" prefWidth="800.0" AnchorPane.bottomAnchor="505.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
