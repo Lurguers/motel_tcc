@@ -23,7 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import objetos.Admin;
+import javax.swing.JOptionPane;
 import objetos.Funcionario;
 
 /**
@@ -48,12 +48,12 @@ public class FXMLDocumentController implements Initializable {
         String Senha = pass.getText().trim();
         Dao d = new Dao();
         List<Funcionario> func = d.consultar(Funcionario.class, "username", usuario);
-        List<Admin> admin = d.consultar(Admin.class, "username", usuario);
-        if (func.isEmpty() && admin.isEmpty()){
+        if (func.isEmpty()){
             labelstatus.setText("Usuário Incorreto!");
-        }else if(func.size()==1 && admin.isEmpty()){
+        }else{
             if (func.get(0).getSenha().trim().equals(Senha.trim())) {
-                labelstatus.setText("func");
+                func.get(0).setLogado(true);
+                d.inserir(func.get(0));
                 Parent parent = FXMLLoader.load(getClass().getResource("tela_principal.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(parent);
@@ -64,18 +64,11 @@ public class FXMLDocumentController implements Initializable {
             }else{
                 labelstatus.setText("Senha Incorreta!");
             }
-        }else if (func.isEmpty() && admin.size()==1) {
-            if (admin.get(0).getSenha().trim().equals(Senha.trim())) {
-                labelstatus.setText("admin");
-            }else{
-                labelstatus.setText("Senha Incorreta!");
-            }   
-        }else{
-            labelstatus.setText("Redundancia no Banco de Dados!");
         }
          
     }
-    @FXML    private void exitbuttonclick(MouseEvent event) {
+    @FXML    
+    private void exitbuttonclick(MouseEvent event) {
 
         System.exit(0);
         
@@ -83,8 +76,23 @@ public class FXMLDocumentController implements Initializable {
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         Dao d = new Dao();
+        /*try {
+            
+            Parent parent = FXMLLoader.load(getClass().getResource("loading.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+            for (int i = 0; i < 10000; i++) {
+                System.out.println("a");
+            }
+            
+            stage.hide();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }    
     
 }

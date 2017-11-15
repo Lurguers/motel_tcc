@@ -38,7 +38,6 @@ public class Dao {
         tx.commit();
         session.flush();
         session.close();
-        System.out.println("Inserido com sucesso!!!");
     }    
     
     public boolean deletar(Object o){  
@@ -49,7 +48,6 @@ public class Dao {
         tx.commit();
         session.flush();
         session.close();      
-        System.out.println(o.getClass().getCanonicalName()+" deletado com sucesso!");
         return true;
         }catch(Exception e){
             return false;

@@ -10,5 +10,6 @@
     <mapping class="objetos.Admin"/>
     <mapping class="objetos.User"/>
     <mapping class="objetos.Funcionario"/>
+    <mapping class="objetos.Produto"/>
   </session-factory>
 </hibernate-configuration>

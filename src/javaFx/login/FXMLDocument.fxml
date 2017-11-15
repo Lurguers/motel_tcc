@@ -23,25 +23,28 @@
       </ImageView>
       <AnchorPane layoutX="259.0" layoutY="107.0" onKeyPressed="#handleButtonAction" prefHeight="337.0" prefWidth="283.0" style="-fx-background-color: #476a9b;">
          <children>
-            <Label fx:id="label" alignment="CENTER" layoutX="56.0" prefHeight="74.0" prefWidth="173.0" text="MOTEL">
+            <Label fx:id="label" alignment="CENTER" layoutX="56.0" prefHeight="74.0" prefWidth="173.0" style="-fx-text-fill: black;" text="MOTEL">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="42.0" />
                </font>
             </Label>
-            <Button fx:id="enter" layoutX="62.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="57.0" prefWidth="160.0" style="-fx-background-color: #1a273a; -fx-text-fill: #FFFFFF;" text="Entrar" />
+            <Button fx:id="enter" layoutX="62.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="57.0" prefWidth="160.0" style="-fx-background-color: #1a273a; -fx-text-fill: #FFFFFF;" text="Entrar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <ImageView fitHeight="25.0" fitWidth="50.0" layoutX="50.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/user.png" />
+                  <Image url="@../imagens/icons8-user.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="50.0" layoutX="50.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/password.png" />
+                  <Image url="@../imagens/icons8-password.png" />
                </image>
             </ImageView>
             <Label fx:id="labelstatus" layoutX="77.0" layoutY="204.0" text="" textFill="RED" />
-            <JFXTextField fx:id="user" focusColor="#8cabff" layoutX="75.0" layoutY="108.0" prefHeight="25.0" prefWidth="149.0" promptText="usuário" />
-            <JFXPasswordField fx:id="pass" focusColor="#8cabff" layoutX="74.0" layoutY="164.0" prefHeight="25.0" prefWidth="149.0" promptText="senha" />
+            <JFXTextField fx:id="user" focusColor="#8cabff" layoutX="75.0" layoutY="108.0" prefHeight="25.0" prefWidth="149.0" promptText="usuário" unFocusColor="#1a273a" />
+            <JFXPasswordField fx:id="pass" focusColor="#8cabff" layoutX="74.0" layoutY="164.0" prefHeight="25.0" prefWidth="149.0" promptText="senha" unFocusColor="#1a273a" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="45.0" prefWidth="800.0" AnchorPane.bottomAnchor="505.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

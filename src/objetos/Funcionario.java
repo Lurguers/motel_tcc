@@ -25,23 +25,26 @@ import javax.persistence.Table;
 })  
 public class Funcionario extends User{
     @Column
-    private String nome;
+    private String nome;//
     @Column
-    private float salário;
+    private float salário;//
     @Column
-    private String email;
+    private String email;//
     @Column
-    private String telefone;
-    @Column
-    private String endereco;
-    public Funcionario(String nome, float salário, String email, String telefone, String endereco, String username, String senha) {
-        super(username, senha);
+    private String telefone;//
+    @Column 
+    private String cpf; //
+
+    public Funcionario(String nome, float salário, String email, String telefone, String cpf, String username, String senha, String cep, String endereco, String bairro, String cidade, String uf, int nivelPermisao, int numeroCasa, String descricao) {
+        super(username/**/, senha/**/, cep/**/, endereco/**/, bairro, cidade, uf, nivelPermisao/**/, numeroCasa, descricao);
         this.nome = nome;
         this.salário = salário;
         this.email = email;
         this.telefone = telefone;
-        this.endereco = endereco;
+        this.cpf = cpf;
     }
+     
+   
 
     public Funcionario() {
     }
@@ -77,20 +80,14 @@ public class Funcionario extends User{
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    } 
+
+    public String getCpf() {
+        return cpf;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-    
-    
-            
-            
-    
-    
     
 }
