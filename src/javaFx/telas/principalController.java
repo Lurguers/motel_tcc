@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaFx.login;
+package javaFx.telas;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -156,7 +156,7 @@ public class principalController implements Initializable{
         //seta o nome do usuario logado na label
         Dao d = new Dao();
         List<Funcionario> funcionarioLogado = d.consultar(Funcionario.class, "logado", true);
-        nomeLogado.setText(funcionarioLogado.get(0).getNome());
+        nomeLogado.setText("Bem vindo, "+funcionarioLogado.get(0).getNome()+".");
         //valida os campos do cadastro de produtos
         MaskFieldUtil.monetaryField(precoCompra);
         MaskFieldUtil.monetaryField(precoVenda);

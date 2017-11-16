@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaFx.login;
+package javaFx.telas;
 
 import hibernate.Dao;
 import javafx.application.Application;
@@ -17,17 +17,19 @@ import javafx.stage.StageStyle;
  *
  * @author andre
  */
-public class JavaFXApplication1 extends Application {
+public class MainApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
         
             
-        Parent parent = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/loading/TelaLoadingFXML.fxml"));
         Scene scene = new Scene(parent);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
+        
+        
     }
     
     

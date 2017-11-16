@@ -17,12 +17,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /* TODO code application logic here
+        /* TODO code application logic here*/
         Dao d = new Dao();
         Funcionario f = new Funcionario("a", 1f, "a", "a", "a", "a", "a", "a", "a a", "a", "a", "a",0 ,8,"a a a");
         d.inserir(f);
         System.out.println(f.getLogado());
-        System.exit(0);*/
+        System.exit(0);
     }
     
 }
