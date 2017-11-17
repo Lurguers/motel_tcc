@@ -25,6 +25,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 import objetos.Funcionario;
+import objetos.MaskFieldUtil;
 
 /**
  *
@@ -55,7 +56,7 @@ public class TelaLoginController implements Initializable {
             if (func.get(0).getSenha().trim().equals(Senha.trim())) {
                 func.get(0).setLogado(true);
                 d.inserir(func.get(0));
-                Parent parent = FXMLLoader.load(getClass().getResource("tela_principal.fxml"));
+                Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/tela_principal.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(parent);
                 stage.setScene(scene);
@@ -78,6 +79,8 @@ public class TelaLoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Dao d = new Dao();
+        MaskFieldUtil.ignoreKeys(user);
+        MaskFieldUtil.ignoreKeys(pass);
         /*try {
             
             Parent parent = FXMLLoader.load(getClass().getResource("loading.fxml"));

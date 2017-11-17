@@ -67,11 +67,11 @@ public class TelaLoadingController implements Initializable{
                             stage.initStyle(StageStyle.UNDECORATED);
                             stage.setScene(scene);
                             stage.show();
-                            rootPane.getScene().getWindow().hide();
+                            label.getScene().getWindow().hide();
                         }
                     });
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(TelaLoadingController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TelaLoadingController.class.getName()).log(Level.SEVERE, null, ex+"oi");
             }
                 
             }
