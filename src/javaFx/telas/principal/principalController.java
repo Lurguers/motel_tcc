@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaFx.telas;
+package javaFx.telas.principal;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -17,6 +17,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,7 +29,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -43,6 +51,8 @@ import objetos.Quarto;
  * @author Lurguers
  */
 public class principalController implements Initializable {
+    public Dao d;
+    
     @FXML
     private JFXButton btnHome;
     @FXML
@@ -179,8 +189,40 @@ public class principalController implements Initializable {
     private Label tempoQuarto01;
     @FXML
     private Label tempoQuarto02;
+    @FXML
+    private Button btnBuscaProdID;
+    @FXML
+    private Button btnBuscaProdNome;  
+    @FXML
+    private JFXTextField txtCodProd;
+    @FXML
+    private JFXTextField txtNomeProd;
+    @FXML
+    private TableView<Produto> tabelaProdutos;
+    @FXML
+    private TableColumn<Produto, Integer> colid;
+    @FXML
+    private TableColumn<Produto, String> colcodigo;
+    @FXML
+    private TableColumn<Produto, String> colnome;
+    @FXML
+    private TableColumn<Produto, String> coldesc;
+    @FXML
+    private TableColumn<Produto, Float> colvalcompra;
+    @FXML
+    private TableColumn<Produto, Float> colvalvenda;
+    @FXML
+    private TableColumn<Produto, Integer> colqtdestoque;
+    @FXML
+    private TableColumn<Produto, String> colunidade;
+    @FXML
+    private Label lblStatusConProd;
+    
+    
     
     public static String quartoClicadoRecibo = null;   
+    
+    
     
     public void funcaoCorQuarto(int idQuarto, JFXButton button, Label tempoQuarto){
         Dao d = new Dao();
@@ -283,6 +325,19 @@ public class principalController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        d = new Dao();
+        
+        colid.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
+        colqtdestoque.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getQtdEstoque()).asObject());
+        
+        colvalcompra.setCellValueFactory(cellData -> new SimpleFloatProperty(cellData.getValue().getValorCompra()).asObject());
+        colvalvenda.setCellValueFactory(cellData -> new SimpleFloatProperty(cellData.getValue().getValorVenda()).asObject());
+        
+        colcodigo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigo()));
+        colnome.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+        coldesc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescricao()));
+        colunidade.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUnidade()));
         
     Timeline oneMinuteTimeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
         @Override
@@ -439,6 +494,29 @@ public class principalController implements Initializable {
             }
         }       
     }
+    
+    @FXML
+    private void btnBuscaProdIdClick(ActionEvent event){
+        List<Produto> result = d.consultar(Produto.class, "codigo", txtCodProd.getText());
+        if (result.isEmpty()){
+            lblStatusConProd.setText("Nenhum produto encontrado.");
+        }else{            
+            ObservableList<Produto> obsresult = FXCollections.observableArrayList(result);
+            tabelaProdutos.setItems(obsresult);
+        }
+        
+    }
+    @FXML
+    private void btnBuscaProdNomeClick(ActionEvent event){
+        List<Produto> result = d.consultarlike(Produto.class, "nome", txtNomeProd.getText());
+        if (result.isEmpty()){
+            lblStatusConProd.setText("Nenhum produto encontrado.");
+        }else{            
+            ObservableList<Produto> obsresult = FXCollections.observableArrayList(result);
+            tabelaProdutos.setItems(obsresult);
+        }
+    }
+    
     @FXML
     public void limpar(ActionEvent event){
         cod.setText("");
