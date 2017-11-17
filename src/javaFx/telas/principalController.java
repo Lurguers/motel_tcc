@@ -364,7 +364,7 @@ public class principalController implements Initializable {
         List<Funcionario> funcionarioLogado = d.consultar(Funcionario.class, "logado", true);
         funcionarioLogado.get(0).setLogado(false);
         d.inserir(funcionarioLogado.get(0));
-        System.exit(0);
+        System.exit(0);//
         
     }
     @FXML
