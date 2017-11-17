@@ -7,6 +7,7 @@ package objetos;
 
 import hibernate.Dao;
 import java.util.List;
+import javaFx.telas.principalController;
 
 /**
  *
@@ -39,6 +40,7 @@ public class Main {
         q.setStatusQuarto(1);
         d.inserir(q);
         System.exit(0);*/
+        
     }
     
 }

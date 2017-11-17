@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFx.telas.recibo.controllerRecibo">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="392.0" style="-fx-border-color: white; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFx.telas.recibo.controllerRecibo">
    <children>
       <AnchorPane layoutX="-4.0" layoutY="37.0" prefHeight="66.0" prefWidth="392.0" style="-fx-background-color: #2C2C31;" AnchorPane.bottomAnchor="442.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" layoutX="25.0" layoutY="25.0" prefHeight="66.0" prefWidth="181.0" text="QUARTO 0X" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="0.0">
+            <Label fx:id="numeroQuarto" alignment="CENTER" layoutX="25.0" layoutY="25.0" prefHeight="66.0" prefWidth="181.0" text="QUARTO 0X" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="30.0" />
                </font>
@@ -34,7 +34,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <TableView layoutX="24.0" layoutY="105.0" prefHeight="285.0" prefWidth="392.0" style="-fx-background-color: #404042;" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
+      <TableView fx:id="tableProdutos" layoutX="24.0" layoutY="105.0" prefHeight="285.0" prefWidth="392.0" style="-fx-background-color: #404042;" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
         <columns>
           <TableColumn prefWidth="297.0" text="Nome" />
           <TableColumn minWidth="0.0" prefWidth="94.0" text="Preço" />
@@ -42,7 +42,7 @@
       </TableView>
       <AnchorPane layoutY="66.0" maxHeight="39.0" minHeight="39.0" prefHeight="39.0" prefWidth="392.0" style="-fx-background-color: #2C2C31;" AnchorPane.bottomAnchor="403.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <Label alignment="CENTER" layoutX="34.0" layoutY="1.0" prefHeight="37.0" prefWidth="118.0" text="HH:MM:SS" textFill="WHITE">
+            <Label fx:id="tempoNoQuarto" alignment="CENTER" layoutX="34.0" layoutY="1.0" prefHeight="37.0" prefWidth="118.0" text="HH:MM:SS" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <JFXTextField alignment="CENTER" layoutX="276.0" layoutY="7.0" prefHeight="25.0" prefWidth="72.0" style="-fx-text-inner-color: white;" />
+            <JFXTextField fx:id="codigoPesquisaProduto" alignment="CENTER" layoutX="276.0" layoutY="7.0" prefHeight="25.0" prefWidth="72.0" style="-fx-text-inner-color: white;" />
             <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="353.0" layoutY="7.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #476a9b;">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -66,7 +66,7 @@
       </AnchorPane>
       <AnchorPane layoutX="54.0" layoutY="390.0" prefHeight="118.0" prefWidth="392.0" style="-fx-background-color: #2C2C31;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="390.0">
          <children>
-            <JFXButton fx:id="manutencaoButon" layoutX="14.0" layoutY="70.0" onMouseClicked="#exitbuttonclick" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #476a9b; -fx-text-fill: white;" text="Manutenção" AnchorPane.leftAnchor="14.0" />
+            <JFXButton fx:id="buttonMudarSatatusQuarto" layoutX="14.0" layoutY="70.0" onAction="#alterarStatusQuarto" onMouseClicked="#exitbuttonclick" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #476a9b; -fx-text-fill: white;" text="Manutenção" AnchorPane.leftAnchor="14.0" />
             <Label alignment="CENTER" layoutX="216.0" layoutY="31.0" prefHeight="37.0" prefWidth="70.0" text="TOTAL:" textFill="WHITE" AnchorPane.topAnchor="31.0">
                <font>
                   <Font size="20.0" />
@@ -77,13 +77,13 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton layoutX="256.0" layoutY="70.0" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #476a9b; -fx-text-fill: white;" text="Confirmar" AnchorPane.rightAnchor="14.0" />
+            <JFXButton fx:id="buttonConfirmar" layoutX="256.0" layoutY="70.0" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #476a9b; -fx-text-fill: white;" text="Confirmar" AnchorPane.rightAnchor="14.0" />
             <Label alignment="CENTER" layoutX="214.0" layoutY="14.0" text="+ Por Hora:" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="299.0" layoutY="14.0" text="R$ 0000,00" textFill="WHITE">
+            <Label fx:id="porHora" alignment="CENTER" layoutX="299.0" layoutY="14.0" text="R$ 0000,00" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

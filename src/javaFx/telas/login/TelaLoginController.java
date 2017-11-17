@@ -23,7 +23,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.swing.JOptionPane;
 import objetos.Funcionario;
 import objetos.MaskFieldUtil;
 

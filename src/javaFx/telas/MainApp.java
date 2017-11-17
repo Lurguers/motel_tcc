@@ -21,15 +21,11 @@ public class MainApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        
-            
         Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/loading/TelaLoadingFXML.fxml"));
         Scene scene = new Scene(parent);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
-        
-        
     }
     
     

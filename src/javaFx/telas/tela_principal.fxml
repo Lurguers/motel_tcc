@@ -21,7 +21,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/home.png" />
+                        <Image url="@imagens/home.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -33,7 +33,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-product.png" />
+                        <Image url="@imagens/icons8-product.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -45,7 +45,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-product-documents-filled.png" />
+                        <Image url="@imagens/icons8-product-documents-filled.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -57,7 +57,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-user-filled.png" />
+                        <Image url="@imagens/icons8-user-filled.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -69,7 +69,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-checked-user-male-filled.png" />
+                        <Image url="@imagens/icons8-checked-user-male-filled.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -81,7 +81,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-money.png" />
+                        <Image url="@imagens/icons8-money.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -204,22 +204,22 @@
                      </graphic></JFXButton>
                   <ImageView fx:id="statusLuz01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-light-off-40.png" />
+                        <Image url="@imagens/icons8-idea-40.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="statusPortaQuarto01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-door-closed-40.png" />
+                        <Image url="@imagens/icons8-door-closed-40.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="statusPortaServico01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-door-closed-40.png" />
+                        <Image url="@imagens/icons8-door-closed-40.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="statusPortao01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-warehouse-40.png" />
+                        <Image url="@imagens/icons8-warehouse-40.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="400.0" layoutY="92.0" style="-fx-text-fill: white;" text="LUZ" />
@@ -229,22 +229,22 @@
                   <Label fx:id="nomeLogado" layoutX="42.0" layoutY="604.0" style="-fx-text-fill: white; -fx-font-size: 20;" text="Nome do Usuario Logado" />
                   <ImageView fx:id="statusLuz02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-idea-40.png" />
+                        <Image url="@imagens/icons8-light-off-40.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="statusPortaQuarto02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-door-opened-40.png" />
+                        <Image url="@imagens/icons8-door-opened-40.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="statusPortaServico02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-door-opened-40.png" />
+                        <Image url="@imagens/icons8-door-opened-40.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="statusPortao02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-depot-40.png" />
+                        <Image url="@imagens/icons8-depot-40.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="833.0" layoutY="92.0" style="-fx-text-fill: white;" text="LUZ" />
@@ -262,7 +262,7 @@
          <children>
             <ImageView fitHeight="37.0" fitWidth="56.0" layoutX="-5.0" layoutY="17.0" onMouseClicked="#exitbuttonclick" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/exit.png" />
+                  <Image url="@imagens/exit.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

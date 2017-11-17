@@ -11,11 +11,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import hibernate.Dao;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.Instant;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -31,7 +28,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -184,6 +180,7 @@ public class principalController implements Initializable {
     @FXML
     private Label tempoQuarto02;
     
+    public static String quartoClicadoRecibo = null;   
     
     public void funcaoCorQuarto(int idQuarto, JFXButton button, Label tempoQuarto){
         Dao d = new Dao();
@@ -266,6 +263,7 @@ public class principalController implements Initializable {
     }
     @FXML
     public void reciboQuarto01(ActionEvent event) throws IOException{
+                quartoClicadoRecibo = "um";
                 Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/recibo/TelaRecibo.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(parent);
@@ -275,6 +273,7 @@ public class principalController implements Initializable {
     }
     @FXML
     public void reciboQuarto02(ActionEvent event) throws IOException{
+                quartoClicadoRecibo = "dois";
                 Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/recibo/TelaRecibo.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(parent);

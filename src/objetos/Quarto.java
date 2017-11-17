@@ -33,7 +33,7 @@ public class Quarto {
     @Column
     private boolean statusLuz;
     @Column
-    private int statusQuarto;// 1 para livre, 2 para ocupado, 3 para em limpez e 4 para em manutenção
+    private int statusQuarto;// 1 para livre, 2 para ocupado, 3 para em limpeza e 4 para em manutenção
     
     public Quarto(){
         
