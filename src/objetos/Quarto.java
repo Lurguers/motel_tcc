@@ -6,6 +6,7 @@
 package objetos;
 
 import java.sql.Time;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,9 +22,7 @@ public class Quarto {
     @GeneratedValue
     private int id;
     @Column
-    private String numQuarto;
-    @Column
-    private Time horaHoraComeco;
+    private Date horaHoraComeco;
     @Column
     private boolean statusPortaQuarto;
     @Column
@@ -38,6 +37,11 @@ public class Quarto {
     public Quarto(){
         
     }
+
+    public Quarto(int statusQuarto) {
+        this.statusQuarto = statusQuarto;
+    }
+    
 
     public int getStatusQuarto() {
         return statusQuarto;
@@ -55,19 +59,11 @@ public class Quarto {
         this.id = id;
     }
 
-    public String getNumQuarto() {
-        return numQuarto;
-    }
-
-    public void setNumQuarto(String numQuarto) {
-        this.numQuarto = numQuarto;
-    }
-
-    public Time getHoraHoraComeco() {
+    public Date getHoraHoraComeco() {
         return horaHoraComeco;
     }
 
-    public void setHoraHoraComeco(Time horaHoraComeco) {
+    public void setHoraHoraComeco(Date horaHoraComeco) {
         this.horaHoraComeco = horaHoraComeco;
     }
 

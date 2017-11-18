@@ -3,10 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaFx.telas.telasHospede;
+package javaFx.telas.telaHospedeEntrada;
 
 import hibernate.Dao;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -21,7 +25,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import net.sf.ehcache.constructs.blocking.SelfPopulatingCache;
+import javax.lang.model.SourceVersion;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import objetos.Quarto;
 
 /**
@@ -45,6 +54,8 @@ public class TelasHospedeController implements Initializable{
     private Label labelQuartoMostrado;
     @FXML
     private ImageView quartoMostrado;
+    @FXML
+    private Label labelQuartoOcupado;
     
     public void StatusQuarto(int idQuarto, Button button, Label labeldoquarto){
         Dao d = new Dao();
@@ -53,7 +64,6 @@ public class TelasHospedeController implements Initializable{
             case 1:
                 //quarto livre
                 button.setStyle("-fx-background-color: linear-gradient(#3bed3b, #11bb11, #3bed3b);");
-                //button.setOnAction(@345c03cc);
                 labeldoquarto.setText("0"+idQuarto);
                 labeldoquarto.setFont( new Font("Verdana", 72) );
                 break;
@@ -62,7 +72,6 @@ public class TelasHospedeController implements Initializable{
             case 4:
                 //quarto ocupado
                 button.setStyle("-fx-background-color: linear-gradient(#ed3b3b, #bb1111, #ed3b3b);");
-                button.setOnAction(null);
                 labeldoquarto.setText("Ocupado");
                 labeldoquarto.setFont( new Font("Verdana", 24) );
                 break;
@@ -78,6 +87,7 @@ public class TelasHospedeController implements Initializable{
             StatusQuarto(2, buttonQuarto02, labelQuarto02);
             i ++;
             if (i==5) {
+                labelQuartoOcupado.setText("");
                 if(labelQuartoMostrado.getText().equals("Quarto 01")){
                     labelQuartoMostrado.setText("Quarto 02");
                     Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\quarto02.jpg");
@@ -96,15 +106,42 @@ public class TelasHospedeController implements Initializable{
         oneMinuteTimeline.play();
     }
     @FXML
-    public void buttonQuartoLivreClicado(ActionEvent event){
-        //abrir portao da frente
-        
-        //abrir portao da garagem do quarto
-        
-        //piscar luz da garagem
-        
-        //seta tempo de comeco do quarto
-        System.out.println("dae");
+    public void buttonRecepcaoClick(ActionEvent event) throws MalformedURLException, LineUnavailableException, UnsupportedAudioFileException, IOException{
+        URL oUrl = new URL("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\Sino.wav");
+        Clip oClip = AudioSystem.getClip();
+        AudioInputStream oStream = AudioSystem.getAudioInputStream(oUrl);
+        oClip.open(oStream);
+        oClip.loop(0);
+    }
+    @FXML
+    public void buttonQuartoClicado01(ActionEvent event){
+        ClicarQuarto(1, labelQuartoOcupado);
+    }
+    @FXML
+    public void buttonQuartoClicado02(ActionEvent event){
+        ClicarQuarto(2, labelQuartoOcupado);
+    }
+    public void ClicarQuarto(int idQuarto, Label labelQuartoOcupado){
+        Dao d = new Dao();
+        List<Quarto> quarto = d.consultar(Quarto.class, "id", idQuarto);
+        switch(quarto.get(0).getStatusQuarto()){
+            case 1:
+                //abrir portao da frente
+                //abrir portao da garagem do quarto
+                //piscar luz da garagem
+                //seta tempo de comeco do quarto
+                labelQuartoOcupado.setText("");
+                quarto.get(0).setStatusQuarto(2);
+                quarto.get(0).setHoraHoraComeco(new Date());
+                System.out.println(quarto.get(0).getHoraHoraComeco());
+                d.inserir(quarto.get(0));
+                break;
+            case 2:
+            case 3:
+            case 4:
+                labelQuartoOcupado.setText("Quarto ocupado!");
+                break;
+        }
     }
     
 }

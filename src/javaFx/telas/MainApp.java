@@ -5,7 +5,6 @@
  */
 package javaFx.telas;
 
-import hibernate.Dao;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,15 +19,7 @@ import javafx.stage.StageStyle;
 public class MainApp extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent parentHospede = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/telasHospede/TelaHospedeEntrada.fxml"));
-        Stage stageHospede = new Stage();
-        Scene sceneHospede = new Scene(parentHospede);
-        stageHospede.setScene(sceneHospede);
-        stageHospede.initStyle(StageStyle.UNDECORATED);
-        stageHospede.show();
-        stageHospede.setFullScreen(true);
-        
+    public void start(Stage stage) throws Exception {        
         Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/loading/TelaLoadingFXML.fxml"));
         Scene scene = new Scene(parent);
         stage.initStyle(StageStyle.UNDECORATED);

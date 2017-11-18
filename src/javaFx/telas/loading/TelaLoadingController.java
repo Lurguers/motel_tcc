@@ -55,6 +55,31 @@ public class TelaLoadingController implements Initializable{
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+                            Parent parentHospede = null;
+                            try {
+                                parentHospede = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/telaHospedeEntrada/TelaHospedeEntrada.fxml"));
+                            } catch (IOException ex) {
+                                Logger.getLogger(TelaLoadingController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            Stage stageHospede = new Stage();
+                            Scene sceneHospede = new Scene(parentHospede);
+                            stageHospede.setScene(sceneHospede);
+                            stageHospede.initStyle(StageStyle.UNDECORATED);
+                            stageHospede.show();
+                            stageHospede.setFullScreen(true);
+                            
+                            Parent parentHospedeSaida = null;
+                            try {
+                                parentHospedeSaida = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/telaHospedeSaida/TelaHospedeSaida.fxml"));
+                            } catch (IOException ex) {
+                                Logger.getLogger(TelaLoadingController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            Stage stageHospedeSaida = new Stage();
+                            Scene sceneHospedeSaida = new Scene(parentHospedeSaida);
+                            stageHospedeSaida.setScene(sceneHospedeSaida);
+                            stageHospedeSaida.initStyle(StageStyle.UNDECORATED);
+                            stageHospedeSaida.show();
+                            
                             Parent parent = null;
                                 try {
                                     parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/login/TelaLoginFXML.fxml"));

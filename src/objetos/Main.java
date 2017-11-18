@@ -39,6 +39,7 @@ public class Main {
         q.setStatusPortaServico(false);
         q.setStatusQuarto(1);
         d.inserir(q);
+        
         System.exit(0);*/
         
     }

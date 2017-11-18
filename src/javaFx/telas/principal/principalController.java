@@ -12,9 +12,14 @@ import com.jfoenix.controls.JFXTextField;
 import hibernate.Dao;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleFloatProperty;
@@ -236,7 +241,16 @@ public class principalController implements Initializable {
             case 2:
                 //quarto ocupado
                 button.setStyle("-fx-background-color: #e52424;");
-                tempoQuarto.setText("tempo quarto");
+                Date date = new Date();
+                Date horaComeco = quarto.get(0).getHoraHoraComeco();
+                long difEmMs = date.getTime() - horaComeco.getTime();
+                long total = TimeUnit.SECONDS.convert(difEmMs,TimeUnit.MILLISECONDS);
+                long h = Math.floorDiv(total, 3600);
+                long m = Math.floorDiv(total%3600, 60);
+                long s = total%60;
+                        
+                
+                tempoQuarto.setText(String.format("%02d:%02d:%02d", h, m, s));
                 break;
             case 3:
                 //quarto em limpeza
@@ -598,7 +612,6 @@ public class principalController implements Initializable {
                 salariofuncionario = salariofuncionario.replace(".","");
                 salariofuncionario = salariofuncionario.replace(",00","");
                 salariofuncionario = salariofuncionario.replace(",",".");
-                JOptionPane.showMessageDialog(null, salariofuncionario);
                 Funcionario func = new Funcionario(nomeFunc.getText(),Float.parseFloat(salariofuncionario), emailFunc.getText(), telFunc.getText(), cpfFunc.getText(), userFunc.getText(), senhaFunc.getText(), cepFunc.getText(), enderecoFunc.getText(), bairroFunc.getText(), cidFunc.getText(), ufFunc.getText(), boxCargos.getSelectionModel().getSelectedIndex(), Integer.parseInt(numFunc.getText()), descFunc.getText());
                 Dao dao = new Dao();
                 dao.inserir(func);
