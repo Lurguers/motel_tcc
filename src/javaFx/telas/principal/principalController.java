@@ -12,9 +12,6 @@ import com.jfoenix.controls.JFXTextField;
 import hibernate.Dao;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -254,12 +251,12 @@ public class principalController implements Initializable {
                 break;
             case 3:
                 //quarto em limpeza
-                button.setStyle("-fx-background-color: yellow;");
+                button.setStyle("-fx-background-color: #e5cf27;");
                 tempoQuarto.setText("");
                 break;
             case 4:
                 //quarto em manutemção
-                button.setStyle("-fx-background-color: blue;");
+                button.setStyle("-fx-background-color: #4286f4;");
                 tempoQuarto.setText("");
                 break;
         }
@@ -270,11 +267,11 @@ public class principalController implements Initializable {
         List<Quarto> quarto = d.consultar(Quarto.class, "id", idQuarto);
         if (quarto.get(0).isStatusPortaQuarto() == true) {
             //porta quarto aberta
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-door-opened-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-door-opened-40.png");
             imagem.setImage(img);
         }else{
             //porta quarto fechada
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-door-closed-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-door-closed-40.png");
             imagem.setImage(img);
         }
     }
@@ -283,11 +280,11 @@ public class principalController implements Initializable {
         List<Quarto> quarto = d.consultar(Quarto.class, "id", idQuarto);
         if (quarto.get(0).isStatusPortaServico()== true) {
             //porta serviço aberta
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-door-opened-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-door-opened-40.png");
             imagem.setImage(img);
         }else{
             //porta serviço fechada
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-door-closed-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-door-closed-40.png");
             imagem.setImage(img);
         }
     }
@@ -296,11 +293,11 @@ public class principalController implements Initializable {
         List<Quarto> quarto = d.consultar(Quarto.class, "id", idQuarto);
         if (quarto.get(0).isStatusGaragem()== true) {
             //portão aberta
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-depot-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-depot-40.png");
             imagem.setImage(img);
         }else{
             //portão fechada
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-warehouse-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-warehouse-40.png");
             imagem.setImage(img);
         }
     }
@@ -309,11 +306,11 @@ public class principalController implements Initializable {
         List<Quarto> quarto = d.consultar(Quarto.class, "id", idQuarto);
         if (quarto.get(0).isStatusLuz()== true) {
             //luz acessa
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-idea-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-idea-40.png");
             imagem.setImage(img);
         }else{
             //luz apagada
-            Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\icons8-light-off-40.png");
+            Image img = new Image("/javaFx/telas/imagens/icons8-light-off-40.png");
             imagem.setImage(img);
         }
     }

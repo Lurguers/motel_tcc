@@ -90,12 +90,12 @@ public class TelasHospedeController implements Initializable{
                 labelQuartoOcupado.setText("");
                 if(labelQuartoMostrado.getText().equals("Quarto 01")){
                     labelQuartoMostrado.setText("Quarto 02");
-                    Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\quarto02.jpg");
+                    Image img = new Image("/javaFx/telas/imagens/quarto02.jpg");
                     quartoMostrado.setImage(img);
                     i = 0;
                 }else if(labelQuartoMostrado.getText().equals("Quarto 02")){
                     labelQuartoMostrado.setText("Quarto 01");
-                    Image img = new Image("file:C:\\Users\\Lurguers\\Documents\\NetBeansProjects\\motel_tcc\\src\\javaFx\\telas\\imagens\\quarto01.jpg");
+                    Image img = new Image("/javaFx/telas/imagens/quarto01.jpg");
                     quartoMostrado.setImage(img);
                     i = 0;
                 }
@@ -133,7 +133,6 @@ public class TelasHospedeController implements Initializable{
                 labelQuartoOcupado.setText("");
                 quarto.get(0).setStatusQuarto(2);
                 quarto.get(0).setHoraHoraComeco(new Date());
-                System.out.println(quarto.get(0).getHoraHoraComeco());
                 d.inserir(quarto.get(0));
                 break;
             case 2:
