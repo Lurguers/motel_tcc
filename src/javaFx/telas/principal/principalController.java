@@ -219,8 +219,48 @@ public class principalController implements Initializable {
     private TableColumn<Produto, String> colunidade;
     @FXML
     private Label lblStatusConProd;
-    
-    
+    @FXML
+    private TableView<Funcionario> tabelaFuncionarios;    
+    @FXML
+    private JFXTextField txtNomeFunc;
+    @FXML
+    private JFXTextField txtCpfFunc;
+    @FXML
+    private Button btnBuscaFuncId;
+    @FXML
+    private Button btnBuscaFuncNome;    
+    @FXML
+    private TableColumn<Funcionario, String> colnomefunc;
+    @FXML
+    private TableColumn<Funcionario, String> coluserfunc;
+    @FXML
+    private TableColumn<Funcionario, Integer> colpermissaofunc;
+    @FXML
+    private TableColumn<Funcionario, String> coltelfunc;
+    @FXML
+    private TableColumn<Funcionario, Float> colsalariofunc;
+    @FXML
+    private TableColumn<Funcionario, String> coluffunc;
+    @FXML
+    private TableColumn<Funcionario, String> colcidfunc;
+    @FXML
+    private TableColumn<Funcionario, String> colbairrofunc;
+    @FXML
+    private TableColumn<Funcionario, String> collogfunc;
+    @FXML
+    private TableColumn<Funcionario, Integer> colnumcasafunc;
+    @FXML
+    private TableColumn<Funcionario, String> colcepfunc;
+    @FXML
+    private TableColumn<Funcionario, String> coldescfunc;
+    @FXML
+    private TableColumn<Funcionario, String> colemailfunc;
+    @FXML
+    private TableColumn<Funcionario, String> colstatusfunc;
+    @FXML
+    private Label lblStatusConFunc;
+    @FXML
+    private Pane consulFuncPane;
     
     public static String quartoClicadoRecibo = null;   
     
@@ -350,6 +390,21 @@ public class principalController implements Initializable {
         coldesc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescricao()));
         colunidade.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUnidade()));
         
+        colnomefunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+        coluserfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
+        colpermissaofunc.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNivelPermisao()).asObject());
+        coltelfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefone()));
+        colsalariofunc.setCellValueFactory(cellData -> new SimpleFloatProperty(cellData.getValue().getSalário()).asObject());
+        coluffunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUf()));
+        colcidfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCidade()));
+        colbairrofunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBairro()));
+        collogfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndereco()));
+        colnumcasafunc.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNumeroCasa()).asObject());
+        colcepfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCep()));
+        coldescfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescricao()));
+        colemailfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
+        colstatusfunc.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getStatus())));
+        
     Timeline oneMinuteTimeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
@@ -379,6 +434,7 @@ public class principalController implements Initializable {
         cadprodu.setVisible(false);
         consulProd.setVisible(false);
         cadFuncionario.setVisible(false);
+        consulFuncPane.setVisible(false);
         //seta o nome do usuario logado na label
         Dao d = new Dao();
         List<Funcionario> funcionarioLogado = d.consultar(Funcionario.class, "logado", true);
@@ -396,11 +452,20 @@ public class principalController implements Initializable {
         MaskFieldUtil.onlyAlfaNumericValue(numFunc);
     }
     @FXML
+    private void consulClick(ActionEvent event){
+        consulFuncPane.setVisible(true);
+        quartos.setVisible(false);
+        cadprodu.setVisible(false);
+        consulProd.setVisible(false);
+        cadFuncionario.setVisible(false);
+    }
+    @FXML
     private void homeClick(ActionEvent event){
         quartos.setVisible(true);
         cadprodu.setVisible(false);
         consulProd.setVisible(false);
         cadFuncionario.setVisible(false);
+        consulFuncPane.setVisible(false);
     }
     @FXML
     private void cadProdClick(ActionEvent event){
@@ -408,6 +473,7 @@ public class principalController implements Initializable {
         quartos.setVisible(false);
         consulProd.setVisible(false);
         cadFuncionario.setVisible(false);
+        consulFuncPane.setVisible(false);
     }
     @FXML
     private void consultPrdoClick(ActionEvent event){
@@ -415,6 +481,7 @@ public class principalController implements Initializable {
         quartos.setVisible(false);
         cadprodu.setVisible(false);
         cadFuncionario.setVisible(false);
+        consulFuncPane.setVisible(false);
     }
     @FXML
     public void cadFunciClick(ActionEvent event){
@@ -422,6 +489,7 @@ public class principalController implements Initializable {
         quartos.setVisible(false);
         cadprodu.setVisible(false);
         cadFuncionario.setVisible(true);
+        consulFuncPane.setVisible(false);
     }
     @FXML    
     private void exitbuttonclick(MouseEvent event) {
@@ -508,6 +576,7 @@ public class principalController implements Initializable {
     
     @FXML
     private void btnBuscaProdIdClick(ActionEvent event){
+        tabelaProdutos.setItems(null);
         List<Produto> result = d.consultar(Produto.class, "codigo", txtCodProd.getText());
         if (result.isEmpty()){
             lblStatusConProd.setText("Nenhum produto encontrado.");
@@ -519,6 +588,7 @@ public class principalController implements Initializable {
     }
     @FXML
     private void btnBuscaProdNomeClick(ActionEvent event){
+        tabelaProdutos.setItems(null);
         List<Produto> result = d.consultarlike(Produto.class, "nome", txtNomeProd.getText());
         if (result.isEmpty()){
             lblStatusConProd.setText("Nenhum produto encontrado.");
@@ -527,6 +597,18 @@ public class principalController implements Initializable {
             tabelaProdutos.setItems(obsresult);
         }
     }
+    @FXML
+    private void btnBuscaFuncNomeClick(ActionEvent event){
+        tabelaFuncionarios.setItems(null);
+        List<Funcionario> result = d.consultarlike(Funcionario.class, "nome", txtNomeFunc.getText());
+        if (result.isEmpty()){
+            lblStatusConFunc.setText("Nenhum funcionário encontrado.");
+        }else{            
+            ObservableList<Funcionario> obsresult = FXCollections.observableArrayList(result);
+            tabelaFuncionarios.setItems(obsresult);
+        }
+    }
+    
     
     @FXML
     public void limpar(ActionEvent event){
