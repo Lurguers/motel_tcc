@@ -6,6 +6,7 @@
 package objetos;
 
 import hibernate.Dao;
+import java.util.Date;
 import java.util.List;
 import javaFx.telas.principal.principalController;
 
@@ -41,7 +42,16 @@ public class Main {
         d.inserir(q);
         
         System.exit(0);*/
+        Dao d = new Dao();
+        //List<Produto> p = d.consultar(Produto.class, "id", 1);
+        //Date da = new Date();
+        //Recibo re = new Recibo("lurguers", p, da, da, 10,100);
+        //d.inserir(re);
         
+        //List<Recibo> r = d.consultar(Recibo.class, "id", 2);
+        //System.out.println(r.get(0).getProdutosConsumidos());
+        //System.out.println(r.get(0).getNomeFuncionario());
+        System.exit(0);
     }
     
 }

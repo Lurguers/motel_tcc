@@ -7,10 +7,20 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1350.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFx.telas.telaHospedeSaida.TelaHospedeSaidaController">
    <children>
+      <Pane fx:id="pnlInfo" layoutX="10.0" layoutY="10.0" prefHeight="706.0" prefWidth="1140.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <Label fx:id="lblnotificacao" layoutX="409.0" layoutY="199.0" text="Aguarde o encerramento da Conta!" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="140.0" prefWidth="1350.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="580.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="label" alignment="CENTER" prefHeight="142.0" prefWidth="286.0" style="-fx-text-fill: #476a9b;" text="MOTEL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="0.0">
@@ -21,12 +31,22 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="83.0" layoutY="596.0" prefHeight="124.0" prefWidth="1350.0" style="-fx-background-color: linear-gradient(to bottom, BLACK,#476a9b );" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="580.0" />
-      <AnchorPane layoutX="971.0" layoutY="270.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
+      <Pane fx:id="pnlDados" prefHeight="706.0" prefWidth="1140.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
          <children>
-            <TableView layoutX="415.0" layoutY="25.0" prefHeight="223.0" prefWidth="547.0">
+            <Label layoutX="758.0" layoutY="282.0" text="Produtos:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="778.0" layoutY="309.0" text="TOTAL:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tabelaProdutos" layoutX="415.0" layoutY="25.0" prefHeight="223.0" prefWidth="547.0">
               <columns>
-                <TableColumn prefWidth="447.0" resizable="false" text="Produto" />
-                <TableColumn maxWidth="100.0" minWidth="0.0" prefWidth="345.33331298828125" text="Preço" />
+                <TableColumn fx:id="colnomeprod" prefWidth="447.0" resizable="false" text="Produto" />
+                <TableColumn fx:id="colvalprod" maxWidth="100.0" minWidth="0.0" prefWidth="345.33331298828125" text="Preço" />
               </columns>
                <opaqueInsets>
                   <Insets />
@@ -37,22 +57,17 @@
                   <Font name="Verdana" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="772.0" layoutY="309.0" text="TOTAL:" textFill="WHITE">
+            <Label fx:id="lblvalorquarto" layoutX="856.0" layoutY="257.0" text="R$ 000,00" textFill="WHITE">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="856.0" layoutY="257.0" text="R$ 000,00" textFill="WHITE" AnchorPane.leftAnchor="856.0">
+            <Label fx:id="lblvalortotal" layoutX="856.0" layoutY="309.0" text="R$ 000,00" textFill="WHITE">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="856.0" layoutY="309.0" text="R$ 000,00" textFill="WHITE" AnchorPane.leftAnchor="856.0">
-               <font>
-                  <Font name="Verdana" size="18.0" />
-               </font>
-            </Label>
-            <Button layoutX="858.0" layoutY="353.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="91.0" style="-fx-background-color: linear-gradient(#3bed3b, #11bb11, #3bed3b);" textFill="WHITE">
+            <Button layoutX="858.0" layoutY="353.0" mnemonicParsing="false" onAction="#confirmaCliente" prefHeight="60.0" prefWidth="91.0" style="-fx-background-color: linear-gradient(#3bed3b, #11bb11, #3bed3b);" textFill="WHITE">
                <graphic>
                   <Label text="Confirmar" textFill="WHITE">
                      <font>
@@ -64,16 +79,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="961.0" layoutY="260.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
-         <children>
-            <Label layoutX="409.0" layoutY="199.0" text="Aguarde o encerramento da Conta!" textFill="WHITE">
+            <Label fx:id="lblvalorprodutos" layoutX="856.0" layoutY="282.0" text="R$ 000,00" textFill="WHITE">
                <font>
-                  <Font size="36.0" />
+                  <Font name="Verdana" size="18.0" />
                </font>
             </Label>
          </children>
-      </AnchorPane>
+      </Pane>
    </children>
 </AnchorPane>

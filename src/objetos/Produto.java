@@ -5,10 +5,14 @@
  */
 package objetos;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -33,7 +37,7 @@ public class Produto {
     private String descricao;
     @Column
     private String unidade;
-
+    
     public Produto(String codigo, String nome, int qtdEstoque, float valorCompra, float valorVenda, String descricao, String unidade) {
         this.codigo = codigo;
         this.nome = nome;

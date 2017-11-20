@@ -50,7 +50,6 @@ public class TelaLoginController implements Initializable {
         List<Funcionario> func = d.consultar(Funcionario.class, "username", usuario);
         if (func.isEmpty()){
             labelstatus.setText("Usuário Incorreto!");
-            System.out.println(func.get(0).getUsername());
         }else{
             if (func.get(0).getSenha().trim().equals(Senha.trim())) {
                 func.get(0).setLogado(true);

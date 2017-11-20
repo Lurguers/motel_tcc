@@ -34,10 +34,10 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <TableView fx:id="tableProdutos" layoutX="24.0" layoutY="105.0" prefHeight="285.0" prefWidth="392.0" style="-fx-background-color: #404042;" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
+      <TableView fx:id="tableProduto" layoutX="24.0" layoutY="105.0" prefHeight="285.0" prefWidth="392.0" style="-fx-background-color: #404042;" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
         <columns>
-          <TableColumn prefWidth="297.0" text="Nome" />
-          <TableColumn minWidth="0.0" prefWidth="94.0" text="Preço" />
+          <TableColumn fx:id="colnomeprod" prefWidth="297.0" text="Nome" />
+          <TableColumn fx:id="colvalprod" minWidth="0.0" prefWidth="94.0" text="Preço" />
         </columns>
       </TableView>
       <AnchorPane layoutY="66.0" maxHeight="39.0" minHeight="39.0" prefHeight="39.0" prefWidth="392.0" style="-fx-background-color: #2C2C31;" AnchorPane.bottomAnchor="403.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
@@ -53,9 +53,9 @@
                </font>
             </Label>
             <JFXTextField fx:id="codigoPesquisaProduto" alignment="CENTER" layoutX="276.0" layoutY="7.0" prefHeight="25.0" prefWidth="72.0" style="-fx-text-inner-color: white;" />
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="353.0" layoutY="7.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #476a9b;">
+            <JFXButton fx:id="btnbuscar" contentDisplay="GRAPHIC_ONLY" layoutX="353.0" layoutY="7.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" onAction="#btnbuscarclick" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #476a9b;">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#btnbuscarclick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imagens/icons8-checkmark-40.png" />
                      </image>
@@ -72,12 +72,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="286.0" layoutY="31.0" prefHeight="37.0" text="R$ 0000,00" textFill="WHITE" AnchorPane.topAnchor="31.0">
+            <Label fx:id="lblTotal" alignment="CENTER" layoutX="286.0" layoutY="31.0" prefHeight="37.0" text="R$ 0000,00" textFill="WHITE" AnchorPane.topAnchor="31.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="buttonConfirmar" layoutX="256.0" layoutY="70.0" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #476a9b; -fx-text-fill: white;" text="Confirmar" AnchorPane.rightAnchor="14.0" />
+            <JFXButton fx:id="buttonConfirmar" layoutX="256.0" layoutY="70.0" onAction="#btnConfirmarClick" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #476a9b; -fx-text-fill: white;" text="Confirmar" AnchorPane.rightAnchor="14.0" />
             <Label alignment="CENTER" layoutX="214.0" layoutY="14.0" text="+ Por Hora:" textFill="WHITE">
                <font>
                   <Font size="14.0" />
@@ -88,6 +88,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <JFXButton fx:id="buttonPago" layoutX="258.0" layoutY="70.0" onAction="#btnPagoClick" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #476a9b; -fx-text-fill: white;" text="Pago" visible="false" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="70.0" />
          </children>
       </AnchorPane>
    </children>

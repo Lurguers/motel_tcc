@@ -11,5 +11,6 @@
     <mapping class="objetos.Funcionario"/>
     <mapping class="objetos.Produto"/>
     <mapping class="objetos.Quarto"/>
+    <mapping class="objetos.Recibo"/>
   </session-factory>
 </hibernate-configuration>

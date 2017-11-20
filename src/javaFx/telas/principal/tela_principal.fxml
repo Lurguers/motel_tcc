@@ -296,7 +296,7 @@
             <Pane fx:id="consulFuncPane" prefHeight="650.0" prefWidth="1033.0" style="-fx-background-color: #2C2C31;">
                <children>
                   <JFXTextField fx:id="btnCpfFunc" layoutX="58.0" layoutY="137.0" prefHeight="30.0" prefWidth="142.0" promptText="CPF do Funcionário" style="-fx-text-inner-color: white; -fx-prompt-text-fill: cdcdcd;" />
-                  <Button fx:id="btnBuscaFuncId" layoutX="207.0" layoutY="140.0" mnemonicParsing="false" style="-fx-background-color: #476a9b; -fx-text-fill: #FFF;" text="Buscar">
+                  <Button fx:id="btnBuscaFuncId" layoutX="207.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnBuscaFuncCPFClick" style="-fx-background-color: #476a9b; -fx-text-fill: #FFF;" text="Buscar">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -317,13 +317,14 @@
                   </Button>
                   <Label fx:id="lblStatusConFunc" layoutX="58.0" layoutY="175.0" textFill="RED" />
                   <Label layoutX="58.0" layoutY="74.0" prefHeight="38.0" prefWidth="333.0" style="-fx-alignment: center; -fx-font-family: verdana; -fx-font-size: 30; -fx-text-fill: white;" text="Consultar Funcionário" />
-                  <ScrollPane layoutX="50.0" layoutY="192.0" prefHeight="399.0" prefWidth="934.0">
+                  <ScrollPane layoutX="48.0" layoutY="205.0" prefHeight="386.0" prefWidth="936.0">
                      <content>
-                        <TableView fx:id="tabelaFuncionarios" prefHeight="505.0" prefWidth="1249.0">
+                        <TableView fx:id="tabelaFuncionarios" prefHeight="505.0" prefWidth="1349.0">
                            <columns>
                               <TableColumn fx:id="colid1" prefWidth="28.0" text="ID" />
-                              <TableColumn fx:id="colnomefunc" prefWidth="154.0" text="Nome" />
-                              <TableColumn fx:id="coluserfunc" prefWidth="90.0" text="Usuário" />
+                              <TableColumn fx:id="colnomefunc" prefWidth="125.0" text="Nome" />
+                              <TableColumn fx:id="coluserfunc" prefWidth="88.0" text="Usuário" />
+                              <TableColumn fx:id="colcpffunc" prefWidth="106.0" text="CPF" />
                               <TableColumn fx:id="colpermissaofunc" minWidth="0.0" prefWidth="63.0" text="Permissão" />
                               <TableColumn fx:id="coltelfunc" prefWidth="118.0" text="Telefone" />
                               <TableColumn fx:id="colsalariofunc" prefWidth="107.0" text="Salário" />

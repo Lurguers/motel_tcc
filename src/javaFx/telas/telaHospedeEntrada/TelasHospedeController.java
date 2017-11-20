@@ -31,6 +31,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import objetos.Arduino;
 import objetos.Quarto;
 
 /**
@@ -113,23 +114,27 @@ public class TelasHospedeController implements Initializable{
         oClip.open(oStream);
         oClip.loop(0);
     }
+    private Arduino arduino = new Arduino();
     @FXML
     public void buttonQuartoClicado01(ActionEvent event){
         ClicarQuarto(1, labelQuartoOcupado);
+        arduino.mandarDados(501);//abrir portao da garagem do quarto
+        arduino.mandarDados(51);//piscar luz da garagem
+        arduino.mandarDados(71);
     }
     @FXML
     public void buttonQuartoClicado02(ActionEvent event){
         ClicarQuarto(2, labelQuartoOcupado);
+        arduino.mandarDados(601);//abrir portao da garagem do quarto
+        arduino.mandarDados(61);//piscar luz da garagem
+        arduino.mandarDados(71);
     }
     public void ClicarQuarto(int idQuarto, Label labelQuartoOcupado){
         Dao d = new Dao();
         List<Quarto> quarto = d.consultar(Quarto.class, "id", idQuarto);
         switch(quarto.get(0).getStatusQuarto()){
             case 1:
-                //abrir portao da frente
-                //abrir portao da garagem do quarto
-                //piscar luz da garagem
-                //seta tempo de comeco do quarto
+                arduino.mandarDados(101);//abrir portao da frente
                 labelQuartoOcupado.setText("");
                 quarto.get(0).setStatusQuarto(2);
                 quarto.get(0).setHoraHoraComeco(new Date());

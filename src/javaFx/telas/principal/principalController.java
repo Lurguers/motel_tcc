@@ -43,6 +43,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
+import objetos.Arduino;
 import objetos.Funcionario;
 import objetos.MaskFieldUtil;
 import objetos.Produto;
@@ -224,7 +225,7 @@ public class principalController implements Initializable {
     @FXML
     private JFXTextField txtNomeFunc;
     @FXML
-    private JFXTextField txtCpfFunc;
+    private JFXTextField btnCpfFunc;
     @FXML
     private Button btnBuscaFuncId;
     @FXML
@@ -258,13 +259,15 @@ public class principalController implements Initializable {
     @FXML
     private TableColumn<Funcionario, String> colstatusfunc;
     @FXML
+    private TableColumn<Funcionario, String> colcpffunc;
+    @FXML
     private Label lblStatusConFunc;
     @FXML
     private Pane consulFuncPane;
     
     public static String quartoClicadoRecibo = null;   
-    
-    
+    public static long tempoFinalSec;
+    public static String tempoFinal;
     
     public void funcaoCorQuarto(int idQuarto, JFXButton button, Label tempoQuarto){
         Dao d = new Dao();
@@ -285,9 +288,9 @@ public class principalController implements Initializable {
                 long h = Math.floorDiv(total, 3600);
                 long m = Math.floorDiv(total%3600, 60);
                 long s = total%60;
-                        
-                
                 tempoQuarto.setText(String.format("%02d:%02d:%02d", h, m, s));
+                tempoFinalSec = total;
+                
                 break;
             case 3:
                 //quarto em limpeza
@@ -295,7 +298,7 @@ public class principalController implements Initializable {
                 tempoQuarto.setText("");
                 break;
             case 4:
-                //quarto em manutemção
+                //quarto em manutenção
                 button.setStyle("-fx-background-color: #4286f4;");
                 tempoQuarto.setText("");
                 break;
@@ -357,6 +360,7 @@ public class principalController implements Initializable {
     @FXML
     public void reciboQuarto01(ActionEvent event) throws IOException{
                 quartoClicadoRecibo = "um";
+                tempoFinal = tempoQuarto01.getText();
                 Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/recibo/TelaRecibo.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(parent);
@@ -367,16 +371,17 @@ public class principalController implements Initializable {
     @FXML
     public void reciboQuarto02(ActionEvent event) throws IOException{
                 quartoClicadoRecibo = "dois";
+                tempoFinal = tempoQuarto02.getText();
                 Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/recibo/TelaRecibo.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(parent);
                 stage.setScene(scene);
                 stage.initStyle(StageStyle.UNDECORATED);
                 stage.show();
+                
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
         d = new Dao();
         
         colid.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
@@ -404,24 +409,28 @@ public class principalController implements Initializable {
         coldescfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescricao()));
         colemailfunc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
         colstatusfunc.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getStatus())));
+        colcpffunc.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getCpf())));
         
-    Timeline oneMinuteTimeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            Calendar data = Calendar.getInstance();
-            horaAtual.setText(data.getTime().toString());
-            funcaoPortaQuarto(1, statusPortaQuarto01);
-            funcaoPortaQuarto(2, statusPortaQuarto02);
-            funcaoPortaServiço(1, statusPortaServico01);
-            funcaoPortaServiço(2, statusPortaServico02);
-            funcaoPortao(1, statusPortao01);
-            funcaoPortao(2, statusPortao02);
-            funcaoLux(1, statusLuz01);
-            funcaoLux(2, statusLuz02);
-            funcaoCorQuarto(1, um, tempoQuarto01);
-            funcaoCorQuarto(2, dois, tempoQuarto02);
-        }
-    }));    
+        MaskFieldUtil.onlyDigitsValue(txtCodProd);
+        MaskFieldUtil.cpfField(btnCpfFunc);
+        
+        Timeline oneMinuteTimeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Calendar data = Calendar.getInstance();
+                horaAtual.setText(data.getTime().toString());
+                funcaoPortaQuarto(1, statusPortaQuarto01);
+                funcaoPortaQuarto(2, statusPortaQuarto02);
+                funcaoPortaServiço(1, statusPortaServico01);
+                funcaoPortaServiço(2, statusPortaServico02);
+                funcaoPortao(1, statusPortao01);
+                funcaoPortao(2, statusPortao02);
+                funcaoLux(1, statusLuz01);
+                funcaoLux(2, statusLuz02);
+                funcaoCorQuarto(1, um, tempoQuarto01);
+                funcaoCorQuarto(2, dois, tempoQuarto02);
+            }
+        }));    
         oneMinuteTimeline.setCycleCount(Timeline.INDEFINITE); // Executar indefinidamente.
         oneMinuteTimeline.play();
         //seta o combobox de cargos do cadastro de funcionario
@@ -583,6 +592,8 @@ public class principalController implements Initializable {
         }else{            
             ObservableList<Produto> obsresult = FXCollections.observableArrayList(result);
             tabelaProdutos.setItems(obsresult);
+            lblStatusConProd.setText("");
+            txtNomeProd.setText("");
         }
         
     }
@@ -595,6 +606,8 @@ public class principalController implements Initializable {
         }else{            
             ObservableList<Produto> obsresult = FXCollections.observableArrayList(result);
             tabelaProdutos.setItems(obsresult);
+            lblStatusConProd.setText("");
+            txtCodProd.setText("");
         }
     }
     @FXML
@@ -606,6 +619,21 @@ public class principalController implements Initializable {
         }else{            
             ObservableList<Funcionario> obsresult = FXCollections.observableArrayList(result);
             tabelaFuncionarios.setItems(obsresult);
+            lblStatusConFunc.setText("");
+            btnCpfFunc.setText("");
+        }
+    }
+    @FXML
+    private void btnBuscaFuncCPFClick(ActionEvent event){
+        tabelaFuncionarios.setItems(null);
+        List<Funcionario> result = d.consultarlike(Funcionario.class, "cpf", btnCpfFunc.getText());
+        if (result.isEmpty()){
+            lblStatusConFunc.setText("Nenhum funcionário encontrado.");
+        }else{            
+            ObservableList<Funcionario> obsresult = FXCollections.observableArrayList(result);
+            tabelaFuncionarios.setItems(obsresult);
+            lblStatusConFunc.setText("");
+            txtNomeFunc.setText("");
         }
     }
     
