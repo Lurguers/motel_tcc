@@ -18,9 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.StackPane;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -31,14 +29,8 @@ import javafx.stage.StageStyle;
 public class TelaLoadingController implements Initializable{
     
     @FXML
-    private StackPane rootPane;
-    
-    @FXML
-    private ProgressBar progress;
-    
-    @FXML
-    private Label label;
-    
+    private ImageView label;    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new LoadScreen().start();
@@ -55,6 +47,18 @@ public class TelaLoadingController implements Initializable{
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+                            Parent parentHospedeSaida = null;
+                            try {
+                                parentHospedeSaida = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/telaHospedeSaida/TelaHospedeSaida.fxml"));
+                            } catch (IOException ex) {
+                                Logger.getLogger(TelaLoadingController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            Stage stageHospedeSaida = new Stage();
+                            Scene sceneHospedeSaida = new Scene(parentHospedeSaida);
+                            stageHospedeSaida.setScene(sceneHospedeSaida);
+                            stageHospedeSaida.initStyle(StageStyle.UTILITY);
+                            stageHospedeSaida.show();
+                            
                             Parent parentHospede = null;
                             try {
                                 parentHospede = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/telaHospedeEntrada/TelaHospedeEntrada.fxml"));
@@ -65,20 +69,8 @@ public class TelaLoadingController implements Initializable{
                             Scene sceneHospede = new Scene(parentHospede);
                             stageHospede.setScene(sceneHospede);
                             stageHospede.initStyle(StageStyle.UNDECORATED);
-                            stageHospede.show();
-                            stageHospede.setFullScreen(true);
+                            stageHospede.show();                            
                             
-                            Parent parentHospedeSaida = null;
-                            try {
-                                parentHospedeSaida = FXMLLoader.load(getClass().getClassLoader().getResource("javaFx/telas/telaHospedeSaida/TelaHospedeSaida.fxml"));
-                            } catch (IOException ex) {
-                                Logger.getLogger(TelaLoadingController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            Stage stageHospedeSaida = new Stage();
-                            Scene sceneHospedeSaida = new Scene(parentHospedeSaida);
-                            stageHospedeSaida.setScene(sceneHospedeSaida);
-                            stageHospedeSaida.initStyle(StageStyle.UNDECORATED);
-                            stageHospedeSaida.show();
                             
                             Parent parent = null;
                                 try {

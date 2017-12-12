@@ -33,7 +33,7 @@
                   <Insets />
                </opaqueInsets>
             </JFXButton>
-            <JFXButton fx:id="btnCadProd" contentDisplay="GRAPHIC_ONLY" layoutX="-1.0" layoutY="204.0" onAction="#cadProdClick" prefHeight="67.0" prefWidth="67.0" style="-fx-background-color: #476a9b;" AnchorPane.topAnchor="155.0">
+            <JFXButton fx:id="btnCadProd" contentDisplay="GRAPHIC_ONLY" layoutX="-1.0" layoutY="204.0" onAction="#cadProdClick" prefHeight="67.0" prefWidth="67.0" style="-fx-background-color: #476a9b;" AnchorPane.bottomAnchor="428.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="155.0">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -81,11 +81,11 @@
                   <Insets />
                </opaqueInsets>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutY="558.0" prefHeight="67.0" prefWidth="67.0" style="-fx-background-color: #476a9b;" AnchorPane.topAnchor="555.0">
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutY="558.0" prefHeight="67.0" prefWidth="67.0" style="-fx-background-color: #476a9b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="573.0">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/icons8-money.png" />
+                        <Image url="@../imagens/A_logo.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -96,70 +96,6 @@
          </children></AnchorPane>
       <AnchorPane layoutX="67.0" layoutY="-6.0" prefHeight="650.0" prefWidth="1033.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane fx:id="quartos" prefHeight="650.0" prefWidth="1033.0" style="-fx-background-color: #2C2C31;">
-               <children>
-                  <JFXButton fx:id="um" contentDisplay="GRAPHIC_ONLY" layoutX="196.0" layoutY="83.0" onAction="#reciboQuarto01" prefHeight="332.0" prefWidth="250.0" style="-fx-background-color: #e52424;">
-                     <graphic>
-                        <Label contentDisplay="TEXT_ONLY" style="-fx-text-fill: white; -fx-font-size: 100;" text="01" />
-                     </graphic></JFXButton>
-                  <JFXButton fx:id="dois" contentDisplay="GRAPHIC_ONLY" layoutX="629.0" layoutY="83.0" onAction="#reciboQuarto02" prefHeight="332.0" prefWidth="250.0" style="-fx-background-color: green;">
-                     <graphic>
-                        <Label contentDisplay="TEXT_ONLY" style="-fx-text-fill: white; -fx-font-size: 100;" text="02" />
-                     </graphic></JFXButton>
-                  <ImageView fx:id="statusLuz01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-idea-40.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="statusPortaQuarto01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-door-closed-40.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="statusPortaServico01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-door-closed-40.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="statusPortao01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-warehouse-40.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="400.0" layoutY="92.0" style="-fx-text-fill: white;" text="LUZ" />
-                  <Label layoutX="386.0" layoutY="171.0" style="-fx-text-fill: white;" text="QUARTO" />
-                  <Label layoutX="385.0" layoutY="249.0" style="-fx-text-fill: white;" text="SERVIÇO" />
-                  <Label layoutX="386.0" layoutY="331.0" style="-fx-text-fill: white;" text="PORTÃO" />
-                  <Label fx:id="nomeLogado" layoutX="42.0" layoutY="604.0" style="-fx-text-fill: white; -fx-font-size: 20;" text="Nome do Usuario Logado" />
-                  <ImageView fx:id="statusLuz02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-light-off-40.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="statusPortaQuarto02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-door-opened-40.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="statusPortaServico02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-door-opened-40.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="statusPortao02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagens/icons8-depot-40.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="833.0" layoutY="92.0" style="-fx-text-fill: white;" text="LUZ" />
-                  <Label layoutX="819.0" layoutY="171.0" style="-fx-text-fill: white;" text="QUARTO" />
-                  <Label layoutX="818.0" layoutY="249.0" style="-fx-text-fill: white;" text="SERVIÇO" />
-                  <Label layoutX="819.0" layoutY="331.0" style="-fx-text-fill: white;" text="PORTÃO" />
-                  <Label fx:id="horaAtual" layoutX="813.0" layoutY="609.0" style="-fx-text-fill: white; -fx-font-size: 15;" text="HH : MM" />
-                  <Label fx:id="tempoQuarto01" layoutX="291.0" layoutY="369.0" style="-fx-text-fill: white; -fx-font-size: 15;" text="HH : MM" />
-                  <Label fx:id="tempoQuarto02" layoutX="724.0" layoutY="369.0" style="-fx-text-fill: white; -fx-font-size: 15;" text="HH : MM" />
-               </children>
-            </Pane>
             <Pane fx:id="cadFuncionario" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2C2C31;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="126.0" layoutY="74.0" prefHeight="38.0" prefWidth="319.0" style="-fx-alignment: center; -fx-font-family: verdana; -fx-font-size: 30; -fx-text-fill: white;" text="Cadastro Funcionário" />
@@ -341,6 +277,70 @@
                         </TableView>
                      </content>
                   </ScrollPane>
+               </children>
+            </Pane>
+            <Pane fx:id="quartos" prefHeight="650.0" prefWidth="1033.0" style="-fx-background-color: #2C2C31;">
+               <children>
+                  <JFXButton fx:id="um" contentDisplay="GRAPHIC_ONLY" layoutX="196.0" layoutY="83.0" onAction="#reciboQuarto01" prefHeight="332.0" prefWidth="250.0" style="-fx-background-color: #e52424;">
+                     <graphic>
+                        <Label contentDisplay="TEXT_ONLY" style="-fx-text-fill: white; -fx-font-size: 100;" text="01" />
+                     </graphic></JFXButton>
+                  <JFXButton fx:id="dois" contentDisplay="GRAPHIC_ONLY" layoutX="629.0" layoutY="83.0" onAction="#reciboQuarto02" prefHeight="332.0" prefWidth="250.0" style="-fx-background-color: green;">
+                     <graphic>
+                        <Label contentDisplay="TEXT_ONLY" style="-fx-text-fill: white; -fx-font-size: 100;" text="02" />
+                     </graphic></JFXButton>
+                  <ImageView fx:id="statusLuz01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-idea-40.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="statusPortaQuarto01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-door-closed-40.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="statusPortaServico01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-door-closed-40.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="statusPortao01" fitHeight="40.0" fitWidth="40.0" layoutX="392.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-warehouse-40.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="400.0" layoutY="92.0" style="-fx-text-fill: white;" text="LUZ" />
+                  <Label layoutX="386.0" layoutY="171.0" style="-fx-text-fill: white;" text="QUARTO" />
+                  <Label layoutX="385.0" layoutY="249.0" style="-fx-text-fill: white;" text="SERVIÇO" />
+                  <Label layoutX="386.0" layoutY="331.0" style="-fx-text-fill: white;" text="PORTÃO" />
+                  <Label fx:id="nomeLogado" layoutX="42.0" layoutY="604.0" style="-fx-text-fill: white; -fx-font-size: 20;" text="Nome do Usuario Logado" />
+                  <ImageView fx:id="statusLuz02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-light-off-40.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="statusPortaQuarto02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-door-opened-40.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="statusPortaServico02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-door-opened-40.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="statusPortao02" fitHeight="40.0" fitWidth="40.0" layoutX="825.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/icons8-depot-40.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="833.0" layoutY="92.0" style="-fx-text-fill: white;" text="LUZ" />
+                  <Label layoutX="819.0" layoutY="171.0" style="-fx-text-fill: white;" text="QUARTO" />
+                  <Label layoutX="818.0" layoutY="249.0" style="-fx-text-fill: white;" text="SERVIÇO" />
+                  <Label layoutX="819.0" layoutY="331.0" style="-fx-text-fill: white;" text="PORTÃO" />
+                  <Label fx:id="horaAtual" layoutX="813.0" layoutY="609.0" style="-fx-text-fill: white; -fx-font-size: 15;" text="HH : MM" />
+                  <Label fx:id="tempoQuarto01" layoutX="291.0" layoutY="369.0" style="-fx-text-fill: white; -fx-font-size: 15;" text="HH : MM" />
+                  <Label fx:id="tempoQuarto02" layoutX="724.0" layoutY="369.0" style="-fx-text-fill: white; -fx-font-size: 15;" text="HH : MM" />
                </children>
             </Pane>
          </children>

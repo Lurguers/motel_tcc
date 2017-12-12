@@ -139,6 +139,7 @@ public class TelasHospedeController implements Initializable{
                 quarto.get(0).setStatusQuarto(2);
                 quarto.get(0).setHoraHoraComeco(new Date());
                 d.inserir(quarto.get(0));
+                labelQuartoOcupado.setText("Dirija-se ao quarto 0"+idQuarto);
                 break;
             case 2:
             case 3:

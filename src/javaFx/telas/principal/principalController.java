@@ -12,6 +12,8 @@ import com.jfoenix.controls.JFXTextField;
 import hibernate.Dao;
 import java.io.IOException;
 import java.net.URL;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -264,6 +266,8 @@ public class principalController implements Initializable {
     private Label lblStatusConFunc;
     @FXML
     private Pane consulFuncPane;
+    @FXML
+    private JFXButton btnBuscaFuncionario;
     
     public static String quartoClicadoRecibo = null;   
     public static long tempoFinalSec;
@@ -417,8 +421,10 @@ public class principalController implements Initializable {
         Timeline oneMinuteTimeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Calendar data = Calendar.getInstance();
-                horaAtual.setText(data.getTime().toString());
+                Date data = new Date();
+                Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+                String s = formatter.format(data);
+                horaAtual.setText(s);
                 funcaoPortaQuarto(1, statusPortaQuarto01);
                 funcaoPortaQuarto(2, statusPortaQuarto02);
                 funcaoPortaServiço(1, statusPortaServico01);
@@ -459,6 +465,22 @@ public class principalController implements Initializable {
         MaskFieldUtil.foneField(telFunc);
         MaskFieldUtil.monetaryField(salarioFunc);
         MaskFieldUtil.onlyAlfaNumericValue(numFunc);
+        //valida cargo do funcionario
+        int permisao =funcionarioLogado.get(0).getNivelPermisao();
+        switch (permisao){
+            case 0:
+                um.setOnAction(null);
+                dois.setOnAction(null);
+                btnCadProd.setVisible(false);
+                btnCadFunc.setVisible(false);
+                btnBuscaFuncionario.setVisible(false);
+                break;
+            case 1:
+                btnCadFunc.setVisible(false);
+                btnBuscaFuncionario.setVisible(false);
+                break;
+        }
+        
     }
     @FXML
     private void consulClick(ActionEvent event){

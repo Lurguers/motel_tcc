@@ -43,11 +43,6 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label fx:id="label" alignment="CENTER" layoutX="628.0" layoutY="604.0" prefHeight="74.0" prefWidth="173.0" text="MOTEL" textFill="#476a9b">
-               <font>
-                  <Font name="Berlin Sans FB Demi Bold" size="42.0" />
-               </font>
-            </Label>
             <Button fx:id="buttonRecepcao" contentDisplay="GRAPHIC_ONLY" layoutX="46.0" layoutY="592.0" maxHeight="150.0" maxWidth="150.0" minHeight="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#buttonRecepcaoClick" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: rgba(71, 106, 155, 0.3); -fx-border-color: #476a9b; -fx-border-width: 3;" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -70,6 +65,11 @@
                   <Font size="30.0" />
                </font>
             </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="615.0" layoutY="611.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/sigam.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="33.0" layoutY="33.0" prefHeight="686.0" prefWidth="488.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="862.0" AnchorPane.topAnchor="0.0">
